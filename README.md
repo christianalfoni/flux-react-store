@@ -22,9 +22,8 @@ var StoreA = Store.create({
 Dispatcher.register(StoreA, function (payload) {
 	switch (payload.type) {
 		case 'updateData':
-			return new Promise(function (resolve) {
-				StoreA.data = payload.data;
-			});
+			StoreA.data = payload.data;
+			StoreA.emit('change');
 			break;
 	}
 });
