@@ -8,7 +8,8 @@ and emit events on changes to the store. Read more about FLUX and the stores ove
 Download from **dist**: [ReactStore.min.js](https://rawgithub.com/christianalfoni/react-flux-store/master/dist/ReactStore.min.js) or install from npm with `npm install react-flux-store`.
 
 ### Scope
-- Has a **create** method to merge an object of properties and methods to the instance
+- Has a **create** method that takes a dispatcher. It registers the store to the dispatcher and calls a **dispatch** method on your store, which receives the payload
+- The **create** method also takes a second argument. Object passed will be merged with the store allowing you to create your own dispatch and other props and methods
 - Inherits from **EventEmitter** so that React JS views can listen to events
 
 ### Example
@@ -17,16 +18,15 @@ Download from **dist**: [ReactStore.min.js](https://rawgithub.com/christianalfon
 var Dispatcher = require('./Dispatcher.js');
 var Store = require('react-flux-store');
 
-var StoreA = Store.create({
-	data: []
-});
-
-Dispatcher.register(StoreA, function (payload) {
-	switch (payload.type) {
-		case 'updateData':
-			StoreA.data = payload.data;
-			StoreA.emit('change');
-			break;
+var StoreA = Store.create(Dispatcher, {
+	data: [],
+	dispatch: function (payload) {
+		switch (payload.type) {
+			case 'updateData':
+				this.data = payload.data;
+				this.emit('change');
+				break;
+		}
 	}
 });
 
