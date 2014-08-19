@@ -4,7 +4,10 @@ var mergeInto = require('react/lib/mergeInto');
 
 var Store = function () {}
 Store.prototype = merge(EventEmitter.prototype, {
-	dispatch: function () {}
+	dispatch: function () {},
+	flush: function () {
+		this.emit('update');
+	}
 });
 Store.create = function (Dispatcher, props) {
 	if (arguments.length === 0 || !Dispatcher.register || !Dispatcher.dispatch) {

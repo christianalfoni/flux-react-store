@@ -11,6 +11,7 @@ Download from **dist**: [ReactStore.min.js](https://rawgithub.com/christianalfon
 - Has a **create** method that takes a dispatcher. It registers the store to the dispatcher that calls a **dispatch** method on your store, which receives the payload and the **waitFor** function
 - The **create** method also takes a second argument. Object passed will be merged with the store allowing you to create your own dispatch and other props and methods
 - Inherits from **EventEmitter** so that React JS views can listen to events
+- Instance of store has a **flush** method that will emit an 'update' event
 
 ### Example
 *StoreA.js*
@@ -24,7 +25,7 @@ var StoreA = Store.create(Dispatcher, {
 		switch (payload.type) {
 			case 'updateData':
 				this.data = payload.data;
-				this.emit('change');
+				this.flush();
 				break;
 		}
 	}
@@ -43,10 +44,10 @@ var Component = React.createClass({
  		return { foo: null };
  	},
 	didComponentMount: function () {
-		StoreA.on('change', this.handleChange);
+		StoreA.on('update', this.handleChange);
 	},
 	willComponentUnmount: function () {
-		StoreA.off('change', this.handleChange);
+		StoreA.off('update', this.handleChange);
 	},
 	handleChange: function (bar) {
 		this.setState({
