@@ -8,7 +8,7 @@ and emit events on changes to the store. Read more about FLUX and the stores ove
 Download from **dist**: [ReactStore.min.js](https://rawgithub.com/christianalfoni/react-flux-store/master/dist/ReactStore.min.js) or install from npm with `npm install react-flux-store`.
 
 ### Scope
-- Has a **create** method that takes a dispatcher. It registers the store to the dispatcher and calls a **dispatch** method on your store, which receives the payload
+- Has a **create** method that takes a dispatcher. It registers the store to the dispatcher that calls a **dispatch** method on your store, which receives the payload and the **waitFor** function
 - The **create** method also takes a second argument. Object passed will be merged with the store allowing you to create your own dispatch and other props and methods
 - Inherits from **EventEmitter** so that React JS views can listen to events
 
