@@ -32,6 +32,37 @@ var StoreA = Store.create(Dispatcher, {
 
 module.exports = StoreA;
 ```
+*Component.js*
+```javascript
+/** @jsx React.DOM */
+var React = require('react');
+var StoreA = require('./StoreA.js');
+
+var Component = React.createClass({
+ 	getInitialState: function () {
+ 		return { foo: null };
+ 	},
+	didComponentMount: function () {
+		StoreA.on('change', this.handleChange);
+	},
+	willComponentUnmount: function () {
+		StoreA.off('change', this.handleChange);
+	},
+	handleChange: function (bar) {
+		this.setState({
+			foo: bar
+		});
+	},
+	render: function() {
+		return (
+			<div />
+		);
+	}
+	
+});
+	
+module.exports = Component;
+```
 
 ## Contribute
 
