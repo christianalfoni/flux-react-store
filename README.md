@@ -2,14 +2,13 @@
 
 ## React Store
 
-Part of the FLUX architecture, the store will register a callback on the dispatcher
+Part of [react-flux](https://github.com/christianalfoni/react-flux), the store will register a callback on the dispatcher
 and emit events on changes to the store. Read more about FLUX and the stores over at [Facebook Flux](http://facebook.github.io/flux/).
 
 Download from **dist**: [ReactStore.min.js](https://rawgithub.com/christianalfoni/react-flux-store/master/dist/ReactStore.min.js) or install from npm with `npm install react-flux-store`.
 
 ### Scope
-- Has a **create** method that takes a dispatcher. It registers the store to the dispatcher that calls a **dispatch** method on your store, which receives the payload and the **waitFor** function
-- The **create** method also takes a second argument. Object passed will be merged with the store allowing you to create your own dispatch and other props and methods
+- Has a **create** method that takes a name, a dispatcher and a store definition. It registers the store to the dispatcher that calls a **dispatch** method on your store, which receives the payload and the **waitFor** function
 - Inherits from **EventEmitter** so that React JS views can listen to events
 - Instance of store has a **flush** method that will emit an 'update' event
 
@@ -19,7 +18,7 @@ Download from **dist**: [ReactStore.min.js](https://rawgithub.com/christianalfon
 var Dispatcher = require('./Dispatcher.js');
 var Store = require('react-flux-store');
 
-var StoreA = Store.create(Dispatcher, {
+module.exports = Store.create('StoreA', Dispatcher, {
 	data: [],
 	dispatch: function (payload) {
 		switch (payload.type) {
@@ -30,8 +29,6 @@ var StoreA = Store.create(Dispatcher, {
 		}
 	}
 });
-
-module.exports = StoreA;
 ```
 *Component.js*
 ```javascript

@@ -9,14 +9,14 @@ Store.prototype = merge(EventEmitter.prototype, {
 		this.emit('update');
 	}
 });
-Store.create = function (Dispatcher, props) {
-	if (arguments.length === 0 || !Dispatcher.register || !Dispatcher.dispatch) {
-		throw new Error('You have to pass a Dispatcher and optionally an object to merge ');
+Store.create = function (name, Dispatcher, props) {
+	if (arguments.length < 2 || typeof name !== 'string' || !Dispatcher.register || !Dispatcher.dispatch) {
+		throw new Error('You have to pass a name, a Dispatcher and optionally an object to merge ');
 	}
 	props = props || {};
 	var store = new Store();
 	mergeInto(store, props);
-	Dispatcher.register(store, store.dispatch.bind(store));
+	Dispatcher.register(name, store, store.dispatch.bind(store));
 	return store;
 };
 module.exports = Store;
