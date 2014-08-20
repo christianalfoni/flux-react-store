@@ -18,7 +18,7 @@ Download from **dist**: [ReactStore.min.js](https://rawgithub.com/christianalfon
 var Dispatcher = require('./Dispatcher.js');
 var Store = require('react-flux-store');
 
-module.exports = Store.create('StoreA', Dispatcher, {
+module.exports = Store.create(Dispatcher, {
 	data: [],
 	dispatch: function (payload) {
 		switch (payload.type) {
