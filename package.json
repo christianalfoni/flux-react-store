@@ -1,5 +1,5 @@
 {
-  "name": "react-flux-store",
+  "name": "flux-react-store",
   "version": "1.3.1",
   "description": "React store for the flux architecture",
   "main": "./app/main.js",
@@ -8,7 +8,7 @@
   },
   "repository" : { 
     "type" : "git"
-  , "url" : "https://github.com/christianalfoni/react-flux-store.git"
+  , "url" : "https://github.com/christianalfoni/flux-react-store.git"
   },
   "author": "Christian Alfoni",
   "license": "ISC",
