@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/christianalfoni/react-flux-store.svg?branch=master)](https://travis-ci.org/christianalfoni/react-flux-store)
+[![Build Status](https://travis-ci.org/christianalfoni/flux-react-store.svg?branch=master)](https://travis-ci.org/christianalfoni/flux-react-store)
 
 ## React Store
 
