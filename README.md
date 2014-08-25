@@ -2,7 +2,7 @@
 
 ## React Store
 
-Part of [react-flux](https://github.com/christianalfoni/react-flux), the store will register a callback on the dispatcher
+Part of [flux-react](https://github.com/christianalfoni/flux-react), the store will register a callback on the dispatcher
 and emit events on changes to the store. Read more about FLUX and the stores over at [Facebook Flux](http://facebook.github.io/flux/).
 
 Download from **dist**: [ReactStore.min.js](https://rawgithub.com/christianalfoni/flux-react-store/master/dist/ReactStore.min.js) or install from npm with `npm install flux-react-store`.
