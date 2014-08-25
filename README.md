@@ -5,7 +5,7 @@
 Part of [react-flux](https://github.com/christianalfoni/react-flux), the store will register a callback on the dispatcher
 and emit events on changes to the store. Read more about FLUX and the stores over at [Facebook Flux](http://facebook.github.io/flux/).
 
-Download from **dist**: [ReactStore.min.js](https://rawgithub.com/christianalfoni/react-flux-store/master/dist/ReactStore.min.js) or install from npm with `npm install react-flux-store`.
+Download from **dist**: [ReactStore.min.js](https://rawgithub.com/christianalfoni/flux-react-store/master/dist/ReactStore.min.js) or install from npm with `npm install flux-react-store`.
 
 ### Scope
 - Has a **create** method that takes a name, a dispatcher and a store definition. It registers the store to the dispatcher that calls a **dispatch** method on your store, which receives the payload and the **waitFor** function
